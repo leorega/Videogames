@@ -1,0 +1,35 @@
+.card {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 85%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.images {
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px #130744;
+    width: 95%;
+    height: 60%;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.font {
+    font-family: 'Tektur';
+    color: azure;
+    text-shadow: 1px 5px 9px #3d024b;
+    -webkit-text-stroke: 1px black;
+}
+
+.info {
+    width: 95%;
+    height: 50%;
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+}

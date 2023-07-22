@@ -1,0 +1,30 @@
+.searchBar {
+    width: 30%;
+    height: 4vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 5px 5px #fff;
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem;
+}
+
+.input {
+    border-radius: 0.3rem;
+    width: 60%;
+    height: 4vh; 
+}
+
+.button {
+    border-radius: 0.3rem;
+    background-color: rgb(157, 214, 233);
+    width: 25%;
+    height: 4vh;    
+    font-family: 'Tektur';
+    font-size: rem;
+}
+
+.button:hover {
+    cursor: pointer;
+}

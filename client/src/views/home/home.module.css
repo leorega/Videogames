@@ -1,0 +1,23 @@
+.home {
+    background-image: url('backgroudHome2.avif');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.title {
+    font-family: 'Tektur';
+    color: azure;
+    font-size: 3rem;
+    text-shadow: 1px 1px 9px rgba(57,88,231,0.5);
+    width: 50%;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
