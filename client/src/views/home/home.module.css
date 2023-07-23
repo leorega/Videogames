@@ -1,4 +1,5 @@
 .home {
+    width: 100%;
     background-image: url('backgroudHome2.avif');
     background-size: cover;
     background-attachment: fixed;
@@ -6,18 +7,45 @@
     min-height: 100vh;
 }
 
+.nav {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    padding: 0 2rem;
+}
+
 .title {
     font-family: 'Tektur';
     color: azure;
     font-size: 3rem;
     text-shadow: 1px 1px 9px rgba(57,88,231,0.5);
-    width: 50%;
+    width: 45%;
     text-align: center;
+    cursor: pointer;
 }
 
-.nav {
-    display: flex;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
+.button {
+    border-radius: 0.3rem;
+    background-color: rgb(157, 214, 233);
+    width: 10%;
+    height: 3rem;    
+    font-family: 'Tektur';
+    margin: 0 3rem;
+    box-shadow: 0 0 5px 5px #fff;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.loading {
+    font-family: 'Tektur';
+    color: azure;
+    text-shadow: 1px 1px 9px rgba(57,88,231,0.5);
+    width: 45%;
+    font-size: 3rem;
+    margin: 10rem auto;
+    text-align: center;
 }

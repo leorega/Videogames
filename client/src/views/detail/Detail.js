@@ -1,11 +1,13 @@
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import styles from './detail.module.css';
 
 const URL = 'http://localhost:3001/videogames/';
 
 function Detail() {
+
+    const navigate = useNavigate();
 
     const {id} = useParams();
     const [game, setGame] = useState({});
@@ -21,9 +23,14 @@ function Detail() {
         };
         game();
     }, [id]);
+
+    function handleClose() {
+        navigate(-1);
+    };
     
     return (
         <div className={styles.detailContainer}>
+            <button className={styles.closeButton} onClick={handleClose}>X</button>
             <div className={styles.detailImage}>
                 <div className={styles.detail}>
                     <h2>{game.name}</h2>

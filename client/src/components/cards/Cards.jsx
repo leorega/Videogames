@@ -1,33 +1,52 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import {useEffect, useState} from 'react';
 import Card from '../card/Card';
 import styles from './cards.module.css';
 
-const URL = 'http://localhost:3001/videogames';
+function Cards (props) {
 
-function Cards () {
+    const {games, currentPage, setCurrentPage} = props;
 
-    const [games, setGames] = useState([]);
+    const gamesPerPage = 15;
+
+    const [aPageGames, setAPageGames] = useState([]);
 
     useEffect(() => {
-        const getGames = async () => {
-          try {
-            const response = await axios.get(URL);
-            setGames(response.data);
-          } catch (error) {
-            console.error('Error en la llamada:', error);
-          }
-        };
-        getGames();
-      }, []);
+      setAPageGames(games.slice(currentPage * gamesPerPage, (currentPage + 1) * gamesPerPage));
+    },[games, currentPage]); 
+    
+    function nextPage () {
+        const totalElements = games.length;
+        const nextPage = currentPage + 1;
+        const firstIndex = nextPage * gamesPerPage;
+
+        if (firstIndex >= totalElements) return;
+
+        setCurrentPage(nextPage);
+    };
+
+    function prevPage () {
+        const prevPage = currentPage - 1;
+
+        if (prevPage < 0) return;
+
+        setCurrentPage(prevPage);
+    };
 
     return (
-        <div className={styles.cards}>
-            {games.map((game) => (
-                <Card key={game.id} game={game}/>
-            ))}
+        <div>
+            <div className={styles.paginate}>
+                <button className={styles.button} onClick={prevPage}>Prev</button>
+                <h3 className={styles.font}>Page {currentPage+1}</h3>
+                <button className={styles.button} onClick={nextPage}>Next</button>
+            </div>
+            <div className={styles.cards}>
+                {aPageGames.map((game) => (
+                    <Card key={game.id} game={game}/>
+                ))}
+            </div>
         </div>
     );
 }
 
 export default Cards;
+
