@@ -7,28 +7,68 @@
 
 .paginate {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 15%;
+    width: 100%;
     position: sticky;
     top: 6.5rem;
     z-index: 9999;
     margin: 0 auto;
+    font-family: 'Tektur';
+    color: azure;
+}
+
+.contNav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+
+.filterNav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
 }
 
 .font {
     font-family: 'Tektur';
     color: azure;
     text-shadow: 2px 1px 13px rgba(54, 2, 113, 1);
-    margin: 0 auto;
 }
 
 .button {
     border-radius: 0.3rem;
     background-color: rgb(157, 214, 233);
-    width: 30%;
     height: 2rem;    
     font-family: 'Tektur';
     box-shadow: 0 0 5px 5px #fff;
     cursor: pointer;
+}
+
+.ul {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    border-radius: 5px;
+    position: absolute;
+    text-align: center;
+    padding: 2px;
+}
+  
+nav div ul li {
+    cursor: pointer;
+}
+
+nav div ul li:hover {
+  cursor: pointer;
+  color: blue;
+}  
+
+nav div button:focus + ul,
+nav div ul:hover {
+    display: block;
 }

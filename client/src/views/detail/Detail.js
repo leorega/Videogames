@@ -22,7 +22,9 @@ function Detail() {
             }
         };
         game();
-    }, [id]);
+    },[]);
+
+    console.log(id);
 
     function handleClose() {
         navigate(-1);

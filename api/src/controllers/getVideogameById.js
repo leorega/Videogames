@@ -10,7 +10,7 @@ async function getVideogamesById (req, res) {
 
     try {
         if (idVideogame.includes("-")) {
-            const videogameFromDB = await Videogame.findOne({
+            let videogameFromDB = await Videogame.findOne({
                 where: {
                     id: idVideogame
                 },

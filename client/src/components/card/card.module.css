@@ -8,6 +8,7 @@
     border-radius: 10px;
     box-shadow: 0 0 5px 5px #fff;
     background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .images {
@@ -16,7 +17,6 @@
     width: 95%;
     height: 60%;
     margin: 10px auto;
-    cursor: pointer;
 }
 
 .font {

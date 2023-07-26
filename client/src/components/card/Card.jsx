@@ -14,9 +14,8 @@ function Card (props) {
     const genresList = game.genres.join(', ');
 
     return (
-        <div className={styles.card}>
-            <img src={game.image} alt={game.name} className={styles.images}
-            onClick={navigateHandler}/>
+        <div className={styles.card} onClick={navigateHandler}>
+            <img src={game.image} alt={game.name} className={styles.images}/>
             <div className={styles.info}>
                 <h2 className={styles.font}>{game.name}</h2>
                 <p className={styles.font}>{genresList}</p>
@@ -26,3 +25,4 @@ function Card (props) {
 }
 
 export default Card;
+

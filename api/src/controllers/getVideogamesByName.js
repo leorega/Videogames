@@ -37,7 +37,7 @@ async function getVideogamesByName(req, res) {
             return videogame;
         })
         let allVideogames = [...videogamesDB, ...gamesAPI]
-        return res.status(200).json(allVideogames);
+        return res.status(200).json(allVideogames.splice(0, 15));
       } else {
         return res.status(404).send('No se encontraron videojuegos con ese nombre.');
       }

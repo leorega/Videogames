@@ -7,7 +7,7 @@ const createVideogame = async (req, res) => {
     };
     try {
         const videogame = await Videogame.findOrCreate({where: {
-            name, description, platforms, image, released, rating
+            name, description, platforms, image, released, rating, genres
         }});
       
         return res.status(200).json(videogame); 
