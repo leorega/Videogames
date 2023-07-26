@@ -1,33 +1,26 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
 import styles from './form.module.css';
 
 const Form = () => {
 
     const navigate = useNavigate();
 
-    const genresOptions = [
-        {label: 'Action', value: 'Action'},
-        {label: 'Indie', value: 'Indie'},
-        {label: 'Adventure', value: 'Adventure'},
-        {label: 'RPG', value: 'RPG'},
-        {label: 'Strategy', value: 'Strategy'}, 
-        {label: 'Shooter', value: 'Shooter'},
-        {label: 'Casual', value: 'Casual'},
-        {label: 'Simulation', value: 'Simulation'},
-        {label: 'Puzzle', value: 'Puzzle'}, 
-        {label: 'Arcade', value: 'Arcade'},
-        {label: 'Platformer', value: 'Platformer'},
-        {label: 'Racing', value: 'Racing'},
-        {label: 'Sports', value: 'Sports'},
-        {label: 'Fighting', value: 'Fighting'},
-        {label: 'Family', value: 'Family'},
-        {label: 'Board Games', value: 'Board Games'},
-        {label: 'Educational', value: 'Educational'},
-        {label: 'Card', value: 'Card'},   
-        {label: 'Massively Multiplayer', value: 'Massively Multiplayer'},
-    ];
+    const [genresOptions, setGenresOptions] = useState([]);
+
+    useEffect(() => {
+        const fetchGenres = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/genres');
+            setGenresOptions(response.data);
+        } catch (error) {
+            console.error('Error al obtener los géneros:', error);
+        }
+        };
+        fetchGenres();
+    }, []);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -51,15 +44,16 @@ const Form = () => {
 
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
+        const genreId = Number(event.target.value);
         if (checked) {
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: [...prevFormData[name], event.target.value],
+            [name]: [...prevFormData[name], genreId],
         }));
         } else {
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: prevFormData[name].filter((genre) => genre !== event.target.value),
+            [name]: prevFormData[name].filter((genre) => genre !== genreId),
         }));
         }
     };
@@ -126,13 +120,13 @@ const Form = () => {
                 <p>Select Genres:</p>
                 <div className={styles.genresList}>
                     {genresOptions.map((genre) => (
-                        <label className={styles.labelGenres} key={genre.value}>
-                        {genre.label}
+                        <label className={styles.labelGenres} key={genre.id}>
+                        {genre.name}
                         <input
                             type="checkbox"
                             name="genres"
-                            value={genre.value}
-                            checked={formData.genres.includes(genre.value)}
+                            value={genre.id}
+                            checked={formData.genres.includes(genre.id)}
                             onChange={handleCheckboxChange}
                         />
                         </label>

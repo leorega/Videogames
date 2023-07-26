@@ -14,7 +14,7 @@ function Cards (props) {
 
     const filteredGames = useSelector((state) => state.filteredGames);
     const dispatch = useDispatch();
-    console.log(filteredGames);
+    
     const gamesPerPage = 15;
 
     const [aPageGames, setAPageGames] = useState([]);
